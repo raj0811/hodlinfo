@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body >
+    <div class="body">
+
+    
+    <nav>
+        <div class="navi">
+            <div class="logo">
+                <a href="/"><img src="/images/logo.png" alt="Logo"></a>
+            </div>
+
+            <div class="drop-ctn">
+                <form action="/action_page.php">
+                    <div class="currency">
+                        <select class="dd" name="currency" id="currency">
+                            <option value="inr">INR</option>
+
+                        </select>
+                    </div>
+                    <div class="currency">
+                        <select class="dd" name="crypto" id="crypto">
+                            <option value="btc">BTC</option>
+
+                        </select>
+                    </div>
+
+                    <div>
+                        <a class="dd"
+                            href="https://wazirx.com/invite/sp7pvbt6?utm_source=finstreet&utm_medium=affiliate&utm_campaign=regnow-btn">BUY
+                            BTC</a>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="nav-right">
+                <div class="timer">
+                    <div class="timer-inner">
+
+                    </div>
+                </div>
+                <div class="telegram">
+                    <a href=""><i class="fa-brands fa-telegram"></i>
+                        <h2>TELEGRAM</h2>
+                    </a>
+                </div>
+                <div class="theme">
+                    <label class="switch">
+                        <input type="checkbox" id="toggle" onclick="changeTheme()" />
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="coin-data">
+        <h1 style="text-align: center;" class="bptt">Best Price to Trade</h1>
+        <div class="some-data">
+            <div class="per">
+                <h3>0.16%</h3>
+                <span>5Mins</span>
+            </div>
+            <div class="per">
+                <h3>0.16%</h3>
+                <span>5Mins</span>
+            </div>
+            <div class="price">
+                <h1>₹ 25,18,806</h1>
+                <span>Average BTC/INR net price including commission</span>
+            </div>
+            <div class="per">
+                <h3>0.16%</h3>
+                <span>5Mins</span>
+            </div>
+            <div class="per">
+                <h3>0.16%</h3>
+                <span>5Mins</span>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="coin-container">
+        <div class="coin-head">
+            <div class="sno head-box">
+                #
+            </div>
+            <div class="platform head-box">
+                Platform
+            </div>
+            <div class="last head-box">
+                Last Traded Price
+            </div>
+            <div class="buy-sell head-box">
+                Buy / Sell Price
+            </div>
+            <div class="diff head-box">
+                Difference
+            </div>
+            <div class="savings head-box">
+                Savings
+            </div>
+        </div>
+        <div class="coin-list">
+            <% let serialNumber = 1; %>
+            <% for(let data of fetchData) {%>
+            <div class="coin-bar">
+                <div class="sno head-box">
+                    <%=serialNumber%>
+                </div>
+                <div class="platform head-box">
+                    <%= data.name %>
+                </div>
+                <div class="last head-box">
+                    <%= data.last %>
+                </div>
+                <div class="buy-sell head-box">
+                    <%= data.buy.toLocaleString() %> / <%= data.sell.toLocaleString() %>
+                </div>
+                <div class="diff head-box">
+                    <%= ((data.sell - data.buy) / data.buy * 100).toFixed(3) %> %
+                </div>
+                <div class="savings head-box">
+                    <%= ((data.sell - data.buy) * data.volume).toFixed(3) %>
+                </div>
+            </div>
+            <% serialNumber++; %>
+            <%}%>
+        </div>
+    </section>
+</div>
+    <script>
+
+        function changeTheme() {
+            var body=document.querySelector(".body")
+            var toggle = document.getElementById("toggle");
+            var coinData=document.querySelector(".coin-data");
+            var coinList = document.querySelector(".coin-list");
+            var coinHead=document.querySelector(".coin-head");
+            var nav=document.querySelector(".navi")
+            var bar = document.querySelector(".coin-bar")
+            var boc=document.querySelector(".head-box")
+            if (toggle.checked) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                nav.classList.add("light")
+                coinList.classList.add("light")
+                coinHead.classList.add("light")
+                body.classList.add("light")
+                coinData.classList.add("light")
+                // bar.classList.add("light")
+                // boc.classList.add("light")
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+              
+                nav.classList.remove("light")
+                coinList.classList.remove("light")
+                coinHead.classList.remove("light")
+                body.classList.remove("light")
+                coinData.classList.remove("light")
+                bar.classList.remove("light")
+
+
+            }
+        }
+
+
+    </script>
+   
+
+   <script>
+    function refreshPage() {
+  location.reload();
+}
+
+function startCountdown(duration, display) {
+  let timer = duration;
+
+  setInterval(function() {
+    display.textContent = timer;
+
+    if (--timer < 0) {
+      timer = duration;
+      refreshPage();
+    }
+  }, 1000);
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+  const countdownElement = document.querySelector(".timer-inner");
+  const duration = 60; // Countdown duration in seconds
+
+  startCountdown(duration, countdownElement);
+});
+
+   </script>
+
+</body>
+
+</html>

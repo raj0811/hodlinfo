@@ -1,209 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/f324db610c.js" crossorigin="anonymous"></script>
 </head>
 
-<body >
-    <div class="body">
-
+<body>
+  <nav>
+    <h1>Welcom To Manifest Airlines </h1>
     
-    <nav>
-        <div class="navi">
-            <div class="logo">
-                <a href="/"><img src="/images/logo.png" alt="Logo"></a>
-            </div>
-
-            <div class="drop-ctn">
-                <form action="/action_page.php">
-                    <div class="currency">
-                        <select class="dd" name="currency" id="currency">
-                            <option value="inr">INR</option>
-
-                        </select>
-                    </div>
-                    <div class="currency">
-                        <select class="dd" name="crypto" id="crypto">
-                            <option value="btc">BTC</option>
-
-                        </select>
-                    </div>
-
-                    <div>
-                        <a class="dd"
-                            href="https://wazirx.com/invite/sp7pvbt6?utm_source=finstreet&utm_medium=affiliate&utm_campaign=regnow-btn">BUY
-                            BTC</a>
-                    </div>
-
-                </form>
-            </div>
-
-            <div class="nav-right">
-                <div class="timer">
-                    <div class="timer-inner">
-
-                    </div>
-                </div>
-                <div class="telegram">
-                    <a href=""><i class="fa-brands fa-telegram"></i>
-                        <h2>TELEGRAM</h2>
-                    </a>
-                </div>
-                <div class="theme">
-                    <label class="switch">
-                        <input type="checkbox" id="toggle" onclick="changeTheme()" />
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="coin-data">
-        <h1 style="text-align: center;" class="bptt">Best Price to Trade</h1>
-        <div class="some-data">
-            <div class="per">
-                <h3>0.16%</h3>
-                <span>5Mins</span>
-            </div>
-            <div class="per">
-                <h3>0.16%</h3>
-                <span>5Mins</span>
-            </div>
-            <div class="price">
-                <h1>₹ 25,18,806</h1>
-                <span>Average BTC/INR net price including commission</span>
-            </div>
-            <div class="per">
-                <h3>0.16%</h3>
-                <span>5Mins</span>
-            </div>
-            <div class="per">
-                <h3>0.16%</h3>
-                <span>5Mins</span>
-            </div>
-        </div>
+  </nav>
+  <div class="main">
+    <div class="content">
+      <h1>Select Cities</h1>
+      <form action="/fetch" method="POST">
+        <label for="city1">City 1:</label>
+        <select name="city1" id="city1" required onchange="check()">
+          <option value="">Select a city</option>
+          <!-- Iterate over the cities array to populate the options -->
+          <% cities.forEach(function(city) { %>
+            <option value="<%= city %>">
+              <%= city %>
+            </option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="city2">City 2:</label>
+        <select name="city2" id="city2" required onchange="check()">
+          <option value="">Select a city</option>
+          <!-- Iterate over the cities array to populate the options -->
+          <% cities.forEach(function(city) { %>
+            <option value="<%= city %>">
+              <%= city %>
+            </option>
+            <% }) %>
+        </select>
+        <br>
+        <button id="btn" type="submit"><i class="fa-solid fa-plane-departure"></i> Ready to Fly</button>
+      </form>
     </div>
 
 
-    <section class="coin-container">
-        <div class="coin-head">
-            <div class="sno head-box">
-                #
-            </div>
-            <div class="platform head-box">
-                Platform
-            </div>
-            <div class="last head-box">
-                Last Traded Price
-            </div>
-            <div class="buy-sell head-box">
-                Buy / Sell Price
-            </div>
-            <div class="diff head-box">
-                Difference
-            </div>
-            <div class="savings head-box">
-                Savings
-            </div>
-        </div>
-        <div class="coin-list">
-            <% let serialNumber = 1; %>
-            <% for(let data of fetchData) {%>
-            <div class="coin-bar">
-                <div class="sno head-box">
-                    <%=serialNumber%>
-                </div>
-                <div class="platform head-box">
-                    <%= data.name %>
-                </div>
-                <div class="last head-box">
-                    <%= data.last %>
-                </div>
-                <div class="buy-sell head-box">
-                    <%= data.buy.toLocaleString() %> / <%= data.sell.toLocaleString() %>
-                </div>
-                <div class="diff head-box">
-                    <%= ((data.sell - data.buy) / data.buy * 100).toFixed(3) %> %
-                </div>
-                <div class="savings head-box">
-                    <%= ((data.sell - data.buy) * data.volume).toFixed(3) %>
-                </div>
-            </div>
-            <% serialNumber++; %>
-            <%}%>
-        </div>
-    </section>
-</div>
-    <script>
+  </div>
 
-        function changeTheme() {
-            var body=document.querySelector(".body")
-            var toggle = document.getElementById("toggle");
-            var coinData=document.querySelector(".coin-data");
-            var coinList = document.querySelector(".coin-list");
-            var coinHead=document.querySelector(".coin-head");
-            var nav=document.querySelector(".navi")
-            var bar = document.querySelector(".coin-bar")
-            var boc=document.querySelector(".head-box")
-            if (toggle.checked) {
-                document.documentElement.setAttribute("data-theme", "dark");
-                nav.classList.add("light")
-                coinList.classList.add("light")
-                coinHead.classList.add("light")
-                body.classList.add("light")
-                coinData.classList.add("light")
-                // bar.classList.add("light")
-                // boc.classList.add("light")
-            } else {
-                document.documentElement.setAttribute("data-theme", "light");
-              
-                nav.classList.remove("light")
-                coinList.classList.remove("light")
-                coinHead.classList.remove("light")
-                body.classList.remove("light")
-                coinData.classList.remove("light")
-                bar.classList.remove("light")
+  <script>
+   const check = () => {
+  var city1Dropdown = document.getElementById("city1");
+  var city2Dropdown = document.getElementById("city2");
+  var selectedCity1 = city1Dropdown.value;
+  var selectedCity2 = city2Dropdown.value;
+  var btn = document.getElementById("btn");
 
-
-            }
-        }
-
-
-    </script>
-   
-
-   <script>
-    function refreshPage() {
-  location.reload();
+  if (selectedCity1 == selectedCity2) {
+    btn.innerText = "Can't choose the same city";
+    btn.disabled = true;
+  } else {
+    btn.innerText = "Ready to Fly";
+    btn.disabled = false;
+  }
 }
+ 
 
-function startCountdown(duration, display) {
-  let timer = duration;
 
-  setInterval(function() {
-    display.textContent = timer;
-
-    if (--timer < 0) {
-      timer = duration;
-      refreshPage();
-    }
-  }, 1000);
-}
-
-window.addEventListener("DOMContentLoaded", function() {
-  const countdownElement = document.querySelector(".timer-inner");
-  const duration = 60; // Countdown duration in seconds
-
-  startCountdown(duration, countdownElement);
-});
-
-   </script>
-
+  </script>
 </body>
 
 </html>

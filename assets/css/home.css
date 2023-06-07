@@ -1,308 +1,61 @@
-*{
-    margin: 0%;
-    padding: 0%;
-}
-.body{
-    background-color: #191d28;
-    color: aliceblue;
-    height: 150vh;
-}
 nav{
-    height: 16vh;
-    /* background-color: black; */
+    height: 20vh;
+    background-image: url('https://images.pexels.com/photos/4737484/pexels-photo-4737484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-}
-.navi{
-    height: 80%;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.logo{
-    /* background-color: aquamarine; */
-    height: 50%;
-    width: 20%;
-
-}
-.logo a,img{
-    height: 100%;
-    width: 100%;
-}
-.drop-ctn{
-    /* background-color: rgb(29, 29, 29); */
-    width: 18%;
-    height: 40%;
-    
-}
-.drop-ctn form{
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-}
-.drop-ctn form div{
-    height: 100%;
-    /* background-color: aquamarine; */
-    width: 30%;
+    color: antiquewhite;
     
 }
 
-.dd{
-    background-color: transparent;
-    color: white;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-   background-color: #37383b;
-   border-radius: 15px;
-   justify-content: center;
-   font-size: 1.3rem;
-   text-decoration: none;
-   font-weight: 700;
-}
-
-.nav-right{
-    display: flex;
-    align-items: center;
-    /* background-color: #05fff7; */
-    height: 60%;
-    width: 30%;
-    justify-content: space-evenly;
-}
-.timer{
-    height: 80%;
-    width: 13%;
-    background-color: #3dc6c1;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.timer-inner{
-    height: 80%;
-    width: 80%;
-    background-color: rgb(25,29,40);
-    border-radius: 50px;
-    color: #3dc6c1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-}
-.telegram{
-    background-color: #3dc6c1;
-    width: 40%;
-    height: 90%;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.telegram a{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
-    width: 100%;
-}
-.telegram a{
-    text-decoration: none;
-    color: aliceblue;
-}
-.telegram a i,h2{
-    font-size: 2rem;
-
-}
-.theme{
-    /* background-color: blue; */
-    width: 25%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.switch {
+.main {
     position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-  
-.coin-data{
-    display: flex;
-    flex-direction: column;
-    /* background-color: #2196F3; */
-    height: 30vh;
-}
-.bptt{
-    font-size: 5rem;
-    /* background-color: #37383b; */
-    height: 30%;
-    margin: 0%;
-    padding: 0%;
-}
-.some-data{
-    display: flex;
-    /* background-color: #3dc6c1; */
-    height: 70%;
-    justify-content: space-evenly;
-    align-items: center;
-    /* font-size: 3rem; */
-}
-.per{
-    /* background-color: #2196F3; */
-    width: 10%;
-    height: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-}
-.per h3{
-    font-size: 3rem;
-}
-.per span{
-    font-size: 2rem;
-}
-.price{
-    /* background-color: #2196F3; */
-    width: 30%;
+    height: 60vh;
+    background-image: url('https://i.ibb.co/GvrMnJw/latest-cb-20190106010010.jpg');
+    /* background-image: url('https://i.ibb.co/LZmGDVK/Manifest-1-e1623667562606.png'); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: wheat;
+  }
+  
+.content{
     display: flex;
     flex-direction: column;
     align-items: center;
-
-}
-.price h1{
-    font-size: 4rem;
-}
-.price span{
-    font-size: 2rem;
-}
-
-
-
-
-.coin-container{
-    /* background-color: #3dc6c1; */
-    height: 70vh;
-    padding: 1%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.coin-head{
-    height: 10%;
-    background-color: #525355;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5%;
-}
-
-
-.head-box{
-    /* background-color: #BB86FC; */
-    width: 15%;
     height: 100%;
-    font-size: 2rem;
+    width: 100%;
+}
+.content form{
     display: flex;
+    flex-direction: column;
     align-items: center;
+    height: 100%;
+    /* background-color: aquamarine; */
+    width: 70%;
+    font-size: 2rem;
+}
+.content form select{
+    height: 5vh;
+    width: 60%;
+    background-color: transparent;
 }
 
-
-.coin-list{
-    height: 80%;
-    background-color: #191d28;
+.content form button{
+             background-color: transparent;
+             padding: 1%;
+             
+}
+.content form button:hover{
+    box-shadow: 10px 5px 22px 0px rgb(1, 11, 17);
 }
 
-.coin-bar{
-    height: 12%;
-    background-color: rgb(45,50,65);
-    border-radius: 5px;
-    margin: 0.5%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5%;
+.content form option{
+    background-color: black;
+    color: rgb(255, 255, 255);
 }
-
-  :root {
-    --primary-color: #2196F3;
-    --background-color: white;
-  }
-  
-  [data-theme="dark"] {
-    --primary-color: #BB86FC;
-    --background-color: #121212;
-  }
-  
-  button {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-  }
-  
-
-  .light{
-    background-color: #ccc;
-    color: #121212;
-  }
